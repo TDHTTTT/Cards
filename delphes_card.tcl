@@ -241,12 +241,12 @@ module SimpleCalorimeter ECal {
   }
 
   # 0.02 unit in eta up to eta = 3
-  for {set i 1} {$i <= 6} {incr i} {
+  for {set i 0} {$i <= 6} {incr i} {
     set eta [expr { -3.2 + $i * 0.1}]
     add EtaPhiBins $eta $PhiBins
   }
 
-  for {set i 1} {$i <= 6} {incr i} {
+  for {set i 0} {$i <= 6} {incr i} {
     set eta [expr { 2.6 + $i * 0.1}]
     add EtaPhiBins $eta $PhiBins
   }
@@ -339,12 +339,12 @@ module SimpleCalorimeter HCal {
   }
 
   # 0.02 unit in eta up to eta = 3
-  for {set i 1} {$i <= 3} {incr i} {
+  for {set i 0} {$i <= 3} {incr i} {
     set eta [expr { -3.2 + $i * 0.2}]
     add EtaPhiBins $eta $PhiBins
   }
 
-  for {set i 1} {$i <= 3} {incr i} {
+  for {set i 0} {$i <= 3} {incr i} {
     set eta [expr { 2.6 + $i * 0.2}]
     add EtaPhiBins $eta $PhiBins
   }
