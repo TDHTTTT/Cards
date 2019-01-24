@@ -221,26 +221,26 @@ module SimpleCalorimeter ECal {
   # each list starts with the lower edge of the first tower
   # the list ends with the higher edged of the last tower
 
-  # assume 0.02 x 0.02 resolution in eta,phi in the barrel |eta| < 1.5
+  # assume 0.025 x 0.025 resolution in eta,phi in the barrel |eta| < 2.5
 
   set PhiBins {}
   for {set i -126} {$i <= 126} {incr i} {
     add PhiBins [expr {$i * $pi/126.0}]
   }
 
-  # 0.02 unit in eta up to eta = 1.5 (barrel)
+  # 0.025 unit in eta up to eta = 2.5 (barrel)
   for {set i -100} {$i <= 100} {incr i} {
     set eta [expr {$i * 0.025}]
     add EtaPhiBins $eta $PhiBins
   }
 
-  # assume 0.02 x 0.02 resolution in eta,phi in the endcaps 1.5 < |eta| < 3.0
+  # assume 0.02 x 0.02 resolution in eta,phi in the endcaps 2.5 < |eta| < 3.2
   set PhiBins {}
   for {set i -31} {$i <= 31} {incr i} {
     add PhiBins [expr {$i * $pi/31.0}]
   }
 
-  # 0.02 unit in eta up to eta = 3
+  # 0.1 unit in eta up to eta = 3.2
   for {set i 0} {$i <= 6} {incr i} {
     set eta [expr { -3.2 + $i * 0.1}]
     add EtaPhiBins $eta $PhiBins
@@ -253,7 +253,7 @@ module SimpleCalorimeter ECal {
 
   # take present CMS granularity for HF
 
-  # 0.175 x (0.175 - 0.35) resolution in eta,phi in the HF 3.0 < |eta| < 5.0
+  # 0.175 x (0.175 - 0.35) resolution in eta,phi in the HF 3.2 < |eta| < 5.0
   set PhiBins {}
   for {set i -18} {$i <= 18} {incr i} {
     add PhiBins [expr {$i * $pi/18.0}]
@@ -321,24 +321,27 @@ module SimpleCalorimeter HCal {
   # lists of the edges of each tower in eta and phi
   # each list starts with the lower edge of the first tower
   # the list ends with the higher edged of the last tower
-  #
+  
+  # assume 0.1 x 0.1 resolution in eta,phi in the barrel |eta| < 2.5
+
   set PhiBins {}
   for {set i -31} {$i <= 31} {incr i} {
     add PhiBins [expr {$i * $pi/31.0}]
   }
 
-  # 0.02 unit in eta up to eta = 1.5 (barrel)
   for {set i -25} {$i <= 25} {incr i} {
     set eta [expr {$i * 0.1}]
     add EtaPhiBins $eta $PhiBins
   }
+
+  # assume 0.2 x 0.2 resolution in eta,phi in the barrel 2.5 < |eta| < 3.
 
   set PhiBins {}
   for {set i -16} {$i <= 16} {incr i} {
     add PhiBins [expr {$i * $pi/16.0}]
   }
 
-  # 0.02 unit in eta up to eta = 3
+  # 0.2 unit in eta up to eta = 3.2
   for {set i 0} {$i <= 3} {incr i} {
     set eta [expr { -3.2 + $i * 0.2}]
     add EtaPhiBins $eta $PhiBins
@@ -350,6 +353,7 @@ module SimpleCalorimeter HCal {
   }
 
   # 20 degrees towers
+  # assume 0.2 x 0.2 resolution in eta and 0.35 rad for phi in the barrel 3.2 < |eta| < 4.9.
   set PhiBins {}
   for {set i -9} {$i <= 9} {incr i} {
     add PhiBins [expr {$i * $pi/9.0}]
