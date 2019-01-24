@@ -354,7 +354,7 @@ module SimpleCalorimeter HCal {
   for {set i -9} {$i <= 9} {incr i} {
     add PhiBins [expr {$i * $pi/9.0}]
   }
-  foreach eta {-4.9 -4.7 -4.5 -4.3 -4.1 -3.9 -3.7 -3.5 -3.3 3.5 3.7 3.9 4.1 4.3 4.5 4.7 4.9} {
+  foreach eta {-4.9 -4.7 -4.5 -4.3 -4.1 -3.9 -3.7 -3.5 -3.3 3.3 3.5 3.7 3.9 4.1 4.3 4.5 4.7 4.9} {
     add EtaPhiBins $eta $PhiBins
   }
 
