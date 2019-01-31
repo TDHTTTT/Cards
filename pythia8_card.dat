@@ -7,7 +7,7 @@
 ! General parameters 
 ! ==================
 !
-Main:numberOfEvents      = -1
+Main:numberOfEvents      = 10000
 !
 ! -------------------------------------------------------------------
 ! Specify the HEPMC output of the Pythia8 shower. You can set it to:
@@ -24,8 +24,8 @@ Main:numberOfEvents      = -1
 !               fifo pipe. (useful to select a mounted drive that supports 
 !               fifo). Note that the fifo file extension *must* be '.hepmc.fifo'.
 ! -------------------------------------------------------------------
-!
-HEPMCoutput:file         = auto
+! Disabled because DelphesPythia8 interface no need for hepmc
+!HEPMCoutput:file         = auto
 !
 ! --------------------------------------------------------------------
 ! Parameters relevant only when performing MLM merging, which can be
@@ -71,7 +71,8 @@ Merging:nJetMax  		 = -1
 ! For all merging schemes, decide whehter you want the merging scale
 ! variation computed for only the central weights or all other 
 ! PDF and scale variation weights as well
-SysCalc:fullCutVariation = off
+!Disabled since it gives errro; need to check its funtion??
+!SysCalc:fullCutVariation = off
 !
 ! ==========================
 ! User customized parameters 
@@ -81,3 +82,13 @@ SysCalc:fullCutVariation = off
 ! often irrelevant for phenomenology and very slow. You can turn this 
 ! feature off by uncommenting the line below if so desired.
 !partonlevel:mpi = off
+
+Beams:frameType = 4
+Beams:LHEF = ./ppbb_newbin.lhe
+
+Init:showChangedSettings = on      ! list changed settings
+Init:showChangedParticleData = off ! list changed particle data
+Next:numberCount = 1000           ! print message every n events
+Next:numberShowInfo = 1            ! print event information n times
+Next:numberShowProcess = 1         ! print process record n times
+Next:numberShowEvent = 0           ! print event record n times
